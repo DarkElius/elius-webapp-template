@@ -24,6 +24,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import elius.webapp.template.TemplateAttributes;
+import elius.webapp.template.TemplateLifeCycle;
 import elius.webapp.framework.db.DBManager;
 import elius.webapp.framework.properties.PropertiesManager;
 import elius.webapp.framework.properties.PropertiesManagerFactory;
@@ -78,7 +79,7 @@ public class DBTables {
 		datasourceName = appProperties.get(TemplateAttributes.PROP_DATABASE_APPNAME_DATASOURCE_NAME);
 
 		// Initialize DBManager
-		db = new DBManager(datasourceName);
+		db = new DBManager(TemplateLifeCycle.getDataSource());
 		
 		// Queue, Drop
 		if (0 != db.execute(SQL_TABLE_OBJECT_DROP)) {

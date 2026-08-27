@@ -8,6 +8,7 @@
 - Log4j2.xml path is now optional
 - Log4j2.xml modified
 - Rename of ewa.path to ewa.config.path
+- New database connection management
 
 
 ## [0.0.1]
