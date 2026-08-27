@@ -16,13 +16,13 @@ Components
 -----
 When the project is compiled it'll generate a **war** file
 
-The **resources** directory can be placed every where in your file system.
+The content of **resources** directory can be placed every where in your file system.
 
 It contains:
  * **ewa.properties**, the framework properties file
  
  
- * **log4j2.xml**, the Apache Log4j2 log configuration file
+ * **log4j2.xml**, Optional, the Apache Log4j2 log configuration file already included in the jar
  
  
  * **template.properties**, the application properties file
@@ -41,17 +41,19 @@ When the Elius WebApp Framework will be stable it'll be released on official Mav
 
 Run
 -----
-This project must be deployed in an application server: I'm currently using Apache Tomcat 10.0.6.
+To start the application execute
+ *java -jar -Dewa.config.path=/etc/elius-webapp/config target/EliusWebAppTemplate-<release>.jar*
 
+Application will be available under
+ *http://localhost:8080/index.html*
 
 **Parameters**
 
-There are two parameters that muset be set at jvm level:
  * **ewa.path**, set the resource directory complete path
-       *i.e.: -Dewa.path=/my-path-name/resources*
+       *i.e.: -Dewa.config.path=/etc/elius-webapp/config*
        
 
- * **log4j.configurationFile**, set the Apache Log4j2 xml complete path
+ * **log4j.configurationFile**, Optional, set an external Apache Log4j2 xml configuration
        *i.e.: -Dlog4j.configurationFile=/my-path-name/resources/log4j2.xml*
 
 

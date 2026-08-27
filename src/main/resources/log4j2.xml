@@ -6,7 +6,13 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Root level="TRACE">
+        <!-- Template application -->
+        <Logger name="elius" level="TRACE"/>
+
+        <!-- Jetty -->
+        <Logger name="org.eclipse.jetty" level="WARN"/>
+
+        <Root level="INFO">
             <AppenderRef ref="stdout"/>
         </Root>
     </Loggers>
