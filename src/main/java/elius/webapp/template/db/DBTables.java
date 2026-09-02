@@ -23,18 +23,12 @@ package elius.webapp.template.db;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import elius.webapp.template.TemplateAttributes;
 import elius.webapp.template.TemplateLifeCycle;
 import elius.webapp.framework.db.DBManager;
-import elius.webapp.framework.properties.PropertiesManager;
-import elius.webapp.framework.properties.PropertiesManagerFactory;
 
 public class DBTables {
 	// Get Logger
 	private static Logger logger = LogManager.getLogger(DBTables.class);
-
-	// Properties file
-	private PropertiesManager appProperties;
 	
 	// Database interface
 	private DBManager db;
@@ -48,18 +42,6 @@ public class DBTables {
 													+ ", NAME VARCHAR(1024) NOT NULL DEFAULT ''"
 													+ ", PRIMARY KEY (ID))";
 	
-	// Datasource name
-	private String datasourceName;
-	
-	
-	/**
-	 * Constructor
-	 */
-	public DBTables() {
-		// Application properties
-		appProperties = PropertiesManagerFactory.getInstance(TemplateAttributes.TEMPLATE_PROPERTIES_FILE);
-	}
-	
 	
 	/**
 	 * Initialize objects database
@@ -68,15 +50,6 @@ public class DBTables {
 	public int init() {
 		// Log initialization 
 		logger.debug("Database initialization");
-		
-		// Load default properties
-		if(!appProperties.isLoaded()) {
-			// Return error
-			return 1;
-		}
-					
-		// Load database information
-		datasourceName = appProperties.get(TemplateAttributes.PROP_DATABASE_APPNAME_DATASOURCE_NAME);
 
 		// Initialize DBManager
 		db = new DBManager(TemplateLifeCycle.getDataSource());

@@ -44,9 +44,6 @@ public class MyObjDatabase {
 	
 	// Database interface
 	private DBManager db;
-	
-	// Datasource name
-	private String datasourceName;
 
 	// Insert myobject in the Object table
 	private static final String SQL_INSERT = "INSERT INTO OBJECT (ID, NAME) VALUES (?, ?)";
@@ -84,9 +81,6 @@ public class MyObjDatabase {
 			// Return error
 			return 1;
 		}
-					
-		// Load database information
-		datasourceName = appProperties.get(TemplateAttributes.PROP_DATABASE_APPNAME_DATASOURCE_NAME);
 
 		// Initialize DBManager
 		db = new DBManager(TemplateLifeCycle.getDataSource());

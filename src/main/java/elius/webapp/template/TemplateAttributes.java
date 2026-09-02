@@ -26,11 +26,22 @@ public class TemplateAttributes {
 	public static final String TEMPLATE_PROPERTIES_FILE = "template.properties";
 	
 	
+	// Default - Database jdbc max pool size
+	public static final int DEFAULT_DATABASE_APPNAME_DATASOURCE_MAXPOOLSIZE = 15;
+
 	
 	// Properties - Database initialization on startup (cold start) (y/n) , default is n
 	public static final String PROP_DATABASE_INIT_ON_BOOT = "database.initOnBoot";
 
-	// Properties - Database jdbc name
-	public static final String PROP_DATABASE_APPNAME_DATASOURCE_NAME = "database.ewa.datasource.name";	
-	
+	// Properties - Database jdbc url
+	public static final String PROP_DATABASE_APPNAME_DATASOURCE_URL = "database.ewa.datasource.url";	
+
+	// Properties - Database jdbc username
+	public static final String PROP_DATABASE_APPNAME_DATASOURCE_USERNAME = "database.ewa.datasource.username";
+
+  // Properties - Database jdbc password
+	public static final String PROP_DATABASE_APPNAME_DATASOURCE_PASSWORD = "database.ewa.datasource.password";	
+
+  // Properties - Database jdbc max pool size
+	public static final String PROP_DATABASE_APPNAME_DATASOURCE_MAXPOOLSIZE = "database.ewa.datasource.maxpoolsize";
 }
