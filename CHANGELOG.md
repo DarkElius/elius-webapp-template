@@ -9,6 +9,8 @@
 - Log4j2.xml modified
 - Rename of ewa.path to ewa.config.path
 - New database connection management
+- Fix wrong Java license headers on java files
+- Static filter example
 
 
 ## [0.0.1]
