@@ -36,7 +36,7 @@ public class ApplicationMain {
         ServerConfig config = new ServerConfig()
             .setStaticResources("src/main/resources/html")
             .setPackageJAXRS("elius.webapp.framework.api","elius.webapp.template.api")
-            .addFilter("/api/ewa-DISABLED/*", AuthenticationFilter.class);
+            .addFilter("/api/ewa/*", AuthenticationFilter.class);
         
         // Start web application server with the selected life cycle
         ServerWeb.startWebApp(8080, config, new TemplateLifeCycle());

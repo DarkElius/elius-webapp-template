@@ -57,58 +57,9 @@ Application will be available under
        *i.e.: -Dlog4j.configurationFile=/my-path-name/resources/log4j2.xml*
 
 
-
-**Database connection configuration**
-
-This an example of the jdni resource configuration for a in memory database using Apache Derby.
-
-*<Resource driverClassName="org.apache.derby.iapi.jdbc.AutoloadedDriver"*
-
- *maxIdle="2" maxTotal="10" maxWaitMillis="5"*
-  
- *name="jdbc/ewadb"*
-  
- *type="javax.sql.DataSource"*
-  
- *url="jdbc:derby:memory:ewadb;create=true"*
-  
- *username="" password=""*
-
-*/>*
-
-
-
-
 API
 -----
-Below some exmaple about http calls: remember to modify web.xml and your packages in case of changes.
-
-**General**
-
-* Add an object to database
-  
-  *curl -X PUT -d '{"name": "foo"}' http://localhost:8080/EliusWebAppTemplate/api/ewa/object  --header "Content-Type:application/json"*
-
-* Get all objects from database
-
-  *curl http://localhost:8080/EliusWebAppTemplate/api/ewa/object*
-
-
-**Authentications**
-
-Execute calls in the same session
-
-* Login
-
-  *curl -X POST -d '{"userId": "myuser", "password": "mypassword"}' http://localhost:8080/EliusWebAppTemplate/api/auth --header "Content-Type:application/json"*
-
-* Login, get logged user info
-
-  *curl http://localhost:8080/EliusWebAppTemplate/api/auth*
-
-* Logout
-
-  *curl http://localhost:8080/EliusWebAppTemplate/api/auth/logout*
+Please refer to Bruno collection
 
 
 ### License

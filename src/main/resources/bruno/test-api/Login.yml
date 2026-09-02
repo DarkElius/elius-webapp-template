@@ -1,0 +1,17 @@
+info:
+  name: Login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{server}}/api/auth"
+  body:
+    type: json
+    data: '{"userId": "myuser", "password": "mypassword"}'
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
