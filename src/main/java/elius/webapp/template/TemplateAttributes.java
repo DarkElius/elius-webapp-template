@@ -20,7 +20,7 @@ package elius.webapp.template;
 public class TemplateAttributes {
 	
 	// Application properties file
-	public static final String PROPERTIES_FILE = "template.properties";
+	public static final String TEMPLATE_PROPERTIES_FILE = "template.properties";
 	
 	
 	// Default - Database jdbc max pool size
