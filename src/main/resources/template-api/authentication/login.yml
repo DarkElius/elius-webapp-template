@@ -1,5 +1,5 @@
 info:
-  name: Login
+  name: login
   type: http
   seq: 1
 
@@ -8,7 +8,11 @@ http:
   url: "{{server}}/api/auth"
   body:
     type: json
-    data: '{"userId": "myuser", "password": "mypassword"}'
+    data: |-
+      {
+        "userId": "{{username}}",
+        "password": "{{password}}"
+      }
 
 settings:
   encodeUrl: true

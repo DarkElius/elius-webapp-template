@@ -1,11 +1,10 @@
 info:
-  name: Page - Public
+  name: objects
   type: http
-  seq: 8
 
 http:
   method: GET
-  url: "{{server}}/index.html"
+  url: "{{server}}/api/ewa/object"
   auth: inherit
 
 settings:

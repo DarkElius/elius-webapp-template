@@ -1,10 +1,11 @@
 info:
-  name: Page - Protected
+  name: user-info
   type: http
+  seq: 3
 
 http:
   method: GET
-  url: "{{server}}/protected-page.html"
+  url: "{{server}}/api/auth"
   auth: inherit
 
 settings:

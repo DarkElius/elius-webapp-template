@@ -11,6 +11,7 @@
 - New database connection management
 - Fix wrong Java license headers on java files
 - Static filter example
+- API documentation with Bruno (.bru)
 
 
 ## [0.0.1]
