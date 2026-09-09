@@ -20,7 +20,7 @@ package elius.webapp.template;
 public class TemplateAttributes {
 	
 	// Application properties file
-	public static final String TEMPLATE_PROPERTIES_FILE = "template.properties";
+	public static final String PROPERTIES_FILE = "template.properties";
 	
 	
 	// Default - Database jdbc max pool size
@@ -36,9 +36,9 @@ public class TemplateAttributes {
 	// Properties - Database jdbc username
 	public static final String PROP_DATABASE_DATASOURCE_USERNAME = "database.datasource.username";
 
-  // Properties - Database jdbc password
+  	// Properties - Database jdbc password
 	public static final String PROP_DATABASE_DATASOURCE_PASSWORD = "database.datasource.password";	
 
-  // Properties - Database jdbc max pool size
+  	// Properties - Database jdbc max pool size
 	public static final String PROP_DATABASE_DATASOURCE_MAXPOOLSIZE = "database.datasource.maxpoolsize";
 }

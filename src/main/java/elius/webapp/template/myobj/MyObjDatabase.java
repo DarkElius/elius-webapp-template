@@ -63,7 +63,7 @@ public class MyObjDatabase {
 	 */
 	public MyObjDatabase() {
 		// Application properties
-		appProperties = PropertiesManagerFactory.getInstance(TemplateAttributes.TEMPLATE_PROPERTIES_FILE);
+		appProperties = PropertiesManagerFactory.getInstance(TemplateAttributes.PROPERTIES_FILE);
 	}
 	
 	
