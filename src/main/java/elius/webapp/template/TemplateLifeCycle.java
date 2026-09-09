@@ -48,7 +48,7 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 	 */
 	public TemplateLifeCycle() {
 		// Application properties
-		appProperties = PropertiesManagerFactory.getInstance(TemplateAttributes.TEMPLATE_PROPERTIES_FILE);
+		appProperties = PropertiesManagerFactory.getInstance(TemplateAttributes.PROPERTIES_FILE);
 	}
 
 	/**
@@ -64,10 +64,10 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
         logger.info("Application Start...");
 
 		// Load database information
-		String dsUrl = appProperties.get(TemplateAttributes.PROP_DATABASE_TEMPLATE_DATASOURCE_URL);
-		String dsUsername = appProperties.get(TemplateAttributes.PROP_DATABASE_TEMPLATE_DATASOURCE_USERNAME);
-		String dsPassword = appProperties.get(TemplateAttributes.PROP_DATABASE_TEMPLATE_DATASOURCE_PASSWORD);
-		int dsMaxPoolSize = appProperties.getInt(TemplateAttributes.PROP_DATABASE_TEMPLATE_DATASOURCE_MAXPOOLSIZE, TemplateAttributes.DEFAULT_DATABASE_TEMPLATE_DATASOURCE_MAXPOOLSIZE);
+		String dsUrl = appProperties.get(TemplateAttributes.PROP_DATABASE_DATASOURCE_URL);
+		String dsUsername = appProperties.get(TemplateAttributes.PROP_DATABASE_DATASOURCE_USERNAME);
+		String dsPassword = appProperties.get(TemplateAttributes.PROP_DATABASE_DATASOURCE_PASSWORD);
+		int dsMaxPoolSize = appProperties.getInt(TemplateAttributes.PROP_DATABASE_DATASOURCE_MAXPOOLSIZE, TemplateAttributes.DEFAULT_DATABASE_DATASOURCE_MAXPOOLSIZE);
 
         dataSource = dbEngine.createPool(
             dsUrl,
