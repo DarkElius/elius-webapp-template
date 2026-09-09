@@ -64,10 +64,10 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
         logger.info("Application Start...");
 
 		// Load database information
-		String dsUrl = appProperties.get(TemplateAttributes.PROP_DATABASE_APPNAME_DATASOURCE_URL);
-		String dsUsername = appProperties.get(TemplateAttributes.PROP_DATABASE_APPNAME_DATASOURCE_USERNAME);
-		String dsPassword = appProperties.get(TemplateAttributes.PROP_DATABASE_APPNAME_DATASOURCE_PASSWORD);
-		int dsMaxPoolSize = appProperties.getInt(TemplateAttributes.PROP_DATABASE_APPNAME_DATASOURCE_MAXPOOLSIZE, TemplateAttributes.DEFAULT_DATABASE_APPNAME_DATASOURCE_MAXPOOLSIZE);
+		String dsUrl = appProperties.get(TemplateAttributes.PROP_DATABASE_TEMPLATE_DATASOURCE_URL);
+		String dsUsername = appProperties.get(TemplateAttributes.PROP_DATABASE_TEMPLATE_DATASOURCE_USERNAME);
+		String dsPassword = appProperties.get(TemplateAttributes.PROP_DATABASE_TEMPLATE_DATASOURCE_PASSWORD);
+		int dsMaxPoolSize = appProperties.getInt(TemplateAttributes.PROP_DATABASE_TEMPLATE_DATASOURCE_MAXPOOLSIZE, TemplateAttributes.DEFAULT_DATABASE_TEMPLATE_DATASOURCE_MAXPOOLSIZE);
 
         dataSource = dbEngine.createPool(
             dsUrl,
@@ -78,9 +78,6 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 
 		// Set initial value
 		initialized = true;
-		
-		// Application properties
-		appProperties = PropertiesManagerFactory.getInstance(TemplateAttributes.TEMPLATE_PROPERTIES_FILE);
 		
 		// Initialize database (drop/create) if required
 		if("Y".equalsIgnoreCase(appProperties.get(TemplateAttributes.PROP_DATABASE_INIT_ON_BOOT))) {
