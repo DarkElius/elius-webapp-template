@@ -203,14 +203,14 @@
    
 
    THIRD-PARTY LIBRARIES
+   This product bundles or uses components from the following third-party projects:
 
-   This product bundles Elius WebApp Framework, which is available under a "Apache 2.0" license.
-   For details, see https://github.com/DarkElius/Elius-WebApp-Framework/blob/master/LICENSE
+   - Elius WebApp Framework (Apache License 2.0)
+   https://github.com/DarkElius/Elius-WebApp-Framework
 
-   This product bundles Apache Log4j 2 for Java version 2.18.0, which is available under a "Apache 2.0" license.
-   For details, see https://github.com/apache/logging-log4j2/blob/2.x/LICENSE.txt
- 
-   This product bundles Apache Derby version 10.16.1.1, which is available under a "Apache 2.0" license.
-   For details, see https://github.com/apache/derby/blob/trunk/LICENSE
+   - Apache Log4j 2 for Java (Apache License 2.0)
+   https://github.com/apache/logging-log4j2
 
+   - Apache Derby (Apache License 2.0)
+   https://db.apache.org/derby/
 
