@@ -200,20 +200,3 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-   
-
-   THIRD-PARTY LIBRARIES
-   This product bundles or uses components from the following third-party projects:
-
-   - Elius WebApp Framework (Apache License 2.0)
-   https://github.com/DarkElius/elius-webApp-framework
-
-   - Apache Derby (Apache License 2.0)
-   https://db.apache.org/derby/
-
-   - Apache Log4j 2 (Apache License 2.0)
-   https://github.com/apache/logging-log4j2
-
-   - Jakarta Servlet API (EPL 2.0 / GPL 2.0 with Classpath Exception)
-   https://github.com/jakartaee/servlet
-
