@@ -14,7 +14,7 @@ I use it as starting point for all my web applications.
 
 Components
 -----
-When the project is compiled it'll generate a **war** file
+When the project is compiled it'll generate a **jar** file
 
 The content of **resources** directory can be placed every where in your file system.
 
@@ -32,9 +32,9 @@ It contains:
 
 Compilation
 -----
-To compile this project you need to compile and install the Elius WebApp Framework on your local Maven repository.
+To compile this project you need to compile and install the *Elius WebApp Framework* on your local Maven repository.
 
-When the Elius WebApp Framework will be stable it'll be released on official Maven repository.
+When the *Elius WebApp Framework* will be stable it'll be released on official Maven repository.
 
 
 
@@ -47,9 +47,10 @@ To start the application execute
 Application will be available under
  *http://localhost:8080/index.html*
 
+
 **Parameters**
 
- * **ewa.path**, set the resource directory complete path
+ * **ewa.config.path**, set the resource directory complete path
        *i.e.: -Dewa.config.path=/etc/elius-webapp/config*
        
 
