@@ -20,7 +20,19 @@ import elius.webapp.framework.security.SecurityRedirectFilter;
 import elius.webapp.framework.security.authentication.AuthenticationFilter;
 import elius.webapp.framework.server.ServerConfig;
 
+
+/**
+ * ApplicationMain
+ * <p>
+ * Main application for webapp template.
+ */
 public class ApplicationMain {
+
+    /**
+	 * Default constructor
+	 */
+	public ApplicationMain() {
+	}
 
     /**
      * Main program

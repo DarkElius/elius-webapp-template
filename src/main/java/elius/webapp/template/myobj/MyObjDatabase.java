@@ -25,10 +25,16 @@ import org.apache.logging.log4j.Logger;
 
 import elius.webapp.template.TemplateAttributes;
 import elius.webapp.template.TemplateLifeCycle;
-import elius.webapp.framework.db.DBManager;
+import elius.webapp.framework.db.DbManager;
 import elius.webapp.framework.properties.PropertiesManager;
 import elius.webapp.framework.properties.PropertiesManagerFactory;
 
+
+/**
+ * MyObjDatabase.
+ * <p>
+ * Manage objects inside database.
+ */
 public class MyObjDatabase {
 	
 	// Get logger
@@ -38,7 +44,7 @@ public class MyObjDatabase {
 	private PropertiesManager appProperties;
 	
 	// Database interface
-	private DBManager db;
+	private DbManager db;
 
 	// Insert myobject in the Object table
 	private static final String SQL_INSERT = "INSERT INTO OBJECT (ID, NAME) VALUES (?, ?)";
@@ -77,8 +83,8 @@ public class MyObjDatabase {
 			return 1;
 		}
 
-		// Initialize DBManager
-		db = new DBManager(TemplateLifeCycle.getDataSource());
+		// Initialize DbManager
+		db = new DbManager(TemplateLifeCycle.getDataSource());
 			
 		// Log initialization 
 		logger.trace("Database initizialed");

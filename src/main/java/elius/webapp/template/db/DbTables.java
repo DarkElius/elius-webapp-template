@@ -19,14 +19,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import elius.webapp.template.TemplateLifeCycle;
-import elius.webapp.framework.db.DBManager;
+import elius.webapp.framework.db.DbManager;
 
-public class DBTables {
+/**
+ * DbTables.
+ * <p>
+ * Drop / create tables for the project
+ */
+public class DbTables {
 	// Get Logger
-	private static Logger logger = LogManager.getLogger(DBTables.class);
+	private static Logger logger = LogManager.getLogger(DbTables.class);
 	
 	// Database interface
-	private DBManager db;
+	private DbManager db;
 	
 	// Drop table TRANSFERS
 	private static final String SQL_TABLE_OBJECT_DROP = "DROP TABLE OBJECT";
@@ -36,6 +41,13 @@ public class DBTables {
 													+ "  ID CHAR(36) NOT NULL DEFAULT ' '"
 													+ ", NAME VARCHAR(1024) NOT NULL DEFAULT ''"
 													+ ", PRIMARY KEY (ID))";
+
+
+	/**
+	 * Default constructor
+	 */
+	public DbTables() {
+	}
 	
 	
 	/**
@@ -46,8 +58,8 @@ public class DBTables {
 		// Log initialization 
 		logger.debug("Database initialization");
 
-		// Initialize DBManager
-		db = new DBManager(TemplateLifeCycle.getDataSource());
+		// Initialize DbManager
+		db = new DbManager(TemplateLifeCycle.getDataSource());
 		
 		// Queue, Drop
 		if (0 != db.execute(SQL_TABLE_OBJECT_DROP)) {

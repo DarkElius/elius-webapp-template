@@ -19,13 +19,18 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import elius.webapp.framework.application.ApplicationLifecycle; 
-import elius.webapp.framework.db.DBEngine;
+import elius.webapp.framework.db.DbEngine;
 import elius.webapp.framework.properties.PropertiesManager;
 import elius.webapp.framework.properties.PropertiesManagerFactory;
-import elius.webapp.template.db.DBTables;
+import elius.webapp.template.db.DbTables;
 
 import javax.sql.DataSource;
 
+/**
+ * TemplateLifeCycle.
+ * <p>
+ * Implement application lifecycle for template.
+ */
 public class TemplateLifeCycle implements ApplicationLifecycle {
 
     // Get logger
@@ -37,7 +42,7 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 	// Initialization status
 	private boolean initialized;
 
-    private final DBEngine dbEngine = new DBEngine();
+    private final DbEngine dbEngine = new DbEngine();
     private static DataSource dataSource;
 
 
@@ -51,7 +56,7 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 
 	/**
 	 * Static global get datasource 
-	 * @return DB Datasource
+	 * @return Db Datasource
 	 */
     public static DataSource getDataSource() {
         return dataSource;
@@ -84,7 +89,7 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 			logger.debug("Database initialization request received");
 			
 			// Application database instance
-			DBTables db = new DBTables();
+			DbTables db = new DbTables();
 			
 			// Database Initialization
 			if (0 != db.init()) {

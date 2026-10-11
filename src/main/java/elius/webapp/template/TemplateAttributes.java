@@ -15,28 +15,39 @@
 
 package elius.webapp.template;
 
+/**
+ * TemplateAttributes.
+ * <p>
+ * Template application attributes.
+ */
 public class TemplateAttributes {
 	
-	// Application properties file
+	/** Application properties file */
 	public static final String PROPERTIES_FILE = "template.properties";
 	
 	
-	// Default - Database jdbc max pool size
+	/** Default - Database jdbc max pool size */
 	public static final int DEFAULT_DATABASE_DATASOURCE_MAXPOOLSIZE = 15;
 
 	
-	// Properties - Database initialization on startup (cold start) (y/n) , default is n
+	/** Properties - Database initialization on startup (cold start) (y/n) , default is n */
 	public static final String PROP_DATABASE_INIT_ON_BOOT = "database.initOnBoot";
 
-	// Properties - Database jdbc url
+	/** Properties - Database jdbc url */
 	public static final String PROP_DATABASE_DATASOURCE_URL = "database.datasource.url";	
 
-	// Properties - Database jdbc username
+	/** Properties - Database jdbc username */
 	public static final String PROP_DATABASE_DATASOURCE_USERNAME = "database.datasource.username";
 
-  	// Properties - Database jdbc password
+  	/** Properties - Database jdbc password */
 	public static final String PROP_DATABASE_DATASOURCE_PASSWORD = "database.datasource.password";	
 
-  	// Properties - Database jdbc max pool size
+  	/** Properties - Database jdbc max pool size */
 	public static final String PROP_DATABASE_DATASOURCE_MAXPOOLSIZE = "database.datasource.maxpoolsize";
+
+	/**
+	 * Default constructor
+	 */
+	public TemplateAttributes() {
+	}
 }

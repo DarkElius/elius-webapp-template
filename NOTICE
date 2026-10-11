@@ -7,7 +7,7 @@ THIRD-PARTY LIBRARIES / NOTICES
 
 This product bundles or incorporates components from the following third-party projects:
 
-  - EliusWebAppFramework (EliusWebAppFramework:EliusWebAppFramework:0.0.2-SNAPSHOT)
+  - EliusWebAppFramework (EliusWebAppFramework:EliusWebAppFramework:0.0.2)
     License: The Apache License, Version 2.0
 
   - Jackson-annotations (com.fasterxml.jackson.core:jackson-annotations:2.19.1)

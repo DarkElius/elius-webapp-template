@@ -17,6 +17,11 @@ package elius.webapp.template.myobj;
 
 import java.util.UUID;
 
+/**
+ * MyObject.
+ * <p>
+ * Object descriptor.
+ */
 public class MyObject {
 	
 	// Universal unique identifier

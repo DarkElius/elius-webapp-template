@@ -32,23 +32,33 @@ import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+/**
+ * REST API resource interface for managing object data operations.
+ * Exposes endpoints under the {@code /ewa/object} path.
+ */
 @Path("/ewa/object")
 public class ObjectInterface extends Application {
 
-	// Get logger
+	/** Logger instance for this class. */
 	private static Logger logger = LogManager.getLogger(ObjectInterface.class);
 	
-	// Object Database
+	/** Database handler for object operations. */
 	private MyObjDatabase dbObject;
 	
 	/**
 	 * Constructor
 	 */
 	public ObjectInterface() {
-		// Object Database instance
+		// Instantiate the object database connection
 		dbObject = new MyObjDatabase();
 	}
 	
+	/**
+     * Adds a new object to the database.
+     * 
+     * @param myObj the object to be added, supplied in the request body
+     * @return a JAX-RS Response indicating success (Created) or internal server error
+     */
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -73,6 +83,11 @@ public class ObjectInterface extends Application {
 	}
 	
 	
+	/**
+     * Retrieves all stored objects from the database.
+     * 
+     * @return a JAX-RS Response containing the list of objects, No Content status if empty, or Internal Server Error on failure
+     */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAll() {
