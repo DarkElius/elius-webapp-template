@@ -18,8 +18,10 @@ package elius.webapp.template;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import elius.webapp.framework.application.ApplicationLifecycle; 
+import elius.webapp.framework.application.ApplicationLifecycle;
+import elius.webapp.framework.db.DbContext;
 import elius.webapp.framework.db.DbEngine;
+import elius.webapp.framework.exceptions.LifecycleException;
 import elius.webapp.framework.properties.PropertiesManager;
 import elius.webapp.framework.properties.PropertiesManagerFactory;
 import elius.webapp.template.db.DbTables;
@@ -38,12 +40,8 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 
 	// Properties file
 	private PropertiesManager appProperties;
-	
-	// Initialization status
-	private boolean initialized;
 
     private final DbEngine dbEngine = new DbEngine();
-    private static DataSource dataSource;
 
 
 	/**
@@ -55,15 +53,16 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 	}
 
 	/**
-	 * Static global get datasource 
-	 * @return Db Datasource
-	 */
+     * Static global get datasource (backward compatible wrapper)
+     * 
+     * @return Db Datasource
+     */
     public static DataSource getDataSource() {
-        return dataSource;
+        return DbContext.getDataSource();
     }
 
     @Override
-    public void onStartup() throws Exception {
+    public void onStartup() throws LifecycleException {
         logger.info("Application Start...");
 
 		// Load database information
@@ -72,15 +71,15 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 		String dsPassword = appProperties.get(TemplateAttributes.PROP_DATABASE_DATASOURCE_PASSWORD);
 		int dsMaxPoolSize = appProperties.getInt(TemplateAttributes.PROP_DATABASE_DATASOURCE_MAXPOOLSIZE, TemplateAttributes.DEFAULT_DATABASE_DATASOURCE_MAXPOOLSIZE);
 
-        dataSource = dbEngine.createPool(
+        DbContext.setDataSource(dbEngine.createPool(
             dsUrl,
             dsUsername, 
             dsPassword, 
             dsMaxPoolSize
-        );
-
+        ));
+		
 		// Set initial value
-		initialized = true;
+		boolean initialized = true;
 		
 		// Initialize database (drop/create) if required
 		if("Y".equalsIgnoreCase(appProperties.get(TemplateAttributes.PROP_DATABASE_INIT_ON_BOOT))) {
@@ -111,11 +110,12 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
     }
 
     @Override
-    public void onShutdown() throws Exception {
+    public void onShutdown() throws LifecycleException {
         
 		logger.info("Application shutting down...");
 
-        // Close pool
+		// Clear context reference and close pool
+        DbContext.clear();
         dbEngine.closePool();
     }
 }

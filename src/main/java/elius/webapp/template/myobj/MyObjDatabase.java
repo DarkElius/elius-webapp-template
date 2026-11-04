@@ -16,6 +16,7 @@
 package elius.webapp.template.myobj;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -52,10 +53,6 @@ public class MyObjDatabase {
 	// Select all myobject in the Object table with a limit
 	// Order by Name
 	private static final String SQL_SELECT_ALL_MAX_ROWS = "SELECT * FROM OBJECT ORDER BY NAME FETCH FIRST ? ROWS ONLY";
-	
-	// Select all myobject in the Object table
-	// Order by Name
-	// private static final String SQL_SELECT_ALL = "SELECT * FROM OBJECT ORDER BY NAME FOR FETCH ONLY";
 	
 	// Update Object name
 	private static final String SQL_UPDATE_NAME = "UPDATE OBJECT SET NAME = ? WHERE ID = ?";
@@ -95,16 +92,16 @@ public class MyObjDatabase {
 	
 	
 	/**
-	 * Add transfer to list
-	 * @param transfer Transfer
+	 * Add object to list
+	 * @param object Object
 	 * @return 0 Successfully, 1 Error
 	 */
-	public int add(MyObject transfer) {
-		// Log add transfer
-		logger.debug("Add transfer(" + transfer.getUuid().toString() + ")");
+	public int add(MyObject object) {
+		// Log add object
+		logger.debug("Add object={}", object.getUuid());
 
 		// Check the number of rows inserted
-		if (db.update(SQL_INSERT, transfer.getUuid().toString(), transfer.getName()) > 0) {
+		if (db.update(SQL_INSERT, object.getUuid().toString(), object.getName()) > 0) {
 			// Log the error
 			logger.error("No rows inserted");
 			// Return error
@@ -119,14 +116,14 @@ public class MyObjDatabase {
 	
 	
 	/**
-	 * Update transfer owner 
-	 * @param uuid Transfer UUID
+	 * Update object owner 
+	 * @param uuid Object UUID
 	 * @param name Name
 	 * @return 0 Successfully, 1 Error
 	 */
 	public int updateName(UUID uuid, String name) {
-		// Log update transfer
-		logger.debug("Update transfer(" + uuid + ") set name(" + name + ")");
+		// Log update object
+		logger.debug("Update uuid={} set name={}", uuid, name);
 
 		// Check the number of rows updated
 		if (db.update(SQL_UPDATE_NAME, name, uuid) > 0) {
@@ -156,12 +153,12 @@ public class MyObjDatabase {
 	/**
 	 * Get MyObject 
 	 * @param sql SQL to be executed
-	 * @param maxRows The maximum number of transfer
+	 * @param maxRows The maximum number of object
 	 * @return MyObject list or null in case of errors
 	 */
  	private List<MyObject> get(String sql, int maxRows) {
 		// Log get object
-		logger.debug("Get object");
+		logger.debug("Get objects");
 
 		// Result table
 		List<Map<String, Object>> table = db.executeQuery(sql, maxRows);
@@ -171,7 +168,7 @@ public class MyObjDatabase {
 			// Log the error
 			logger.error("No rows fetched");
 			// Return error
-			return null;
+			return Collections.emptyList();
 		}	
 
 		// List of objects
@@ -180,11 +177,11 @@ public class MyObjDatabase {
 		// Read rows from database
 		for(Map<String, Object> tableRow : table) {
 			
-			// Define new transfer
+			// Define new object
 			MyObject o = new MyObject();
-			// Set transfer id
+			// Set object id
 			o.setUuid(UUID.fromString((String)tableRow.get("ID")));
-			// Set transfer name
+			// Set object name
 			o.setName((String)tableRow.get("NAME"));
 
 			

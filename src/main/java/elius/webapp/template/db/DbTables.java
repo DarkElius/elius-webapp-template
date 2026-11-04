@@ -30,13 +30,10 @@ public class DbTables {
 	// Get Logger
 	private static Logger logger = LogManager.getLogger(DbTables.class);
 	
-	// Database interface
-	private DbManager db;
-	
-	// Drop table TRANSFERS
+	// Drop table OBJECTS
 	private static final String SQL_TABLE_OBJECT_DROP = "DROP TABLE OBJECT";
 
-	// Create table TRANSFERS
+	// Create table OBJECTS
 	private static final String SQL_TABLE_OBJECT = "CREATE TABLE OBJECT ("
 													+ "  ID CHAR(36) NOT NULL DEFAULT ' '"
 													+ ", NAME VARCHAR(1024) NOT NULL DEFAULT ''"
@@ -47,6 +44,7 @@ public class DbTables {
 	 * Default constructor
 	 */
 	public DbTables() {
+		/* Nothing to initialize */
 	}
 	
 	
@@ -59,7 +57,7 @@ public class DbTables {
 		logger.debug("Database initialization");
 
 		// Initialize DbManager
-		db = new DbManager(TemplateLifeCycle.getDataSource());
+		DbManager db = new DbManager(TemplateLifeCycle.getDataSource());
 		
 		// Queue, Drop
 		if (0 != db.execute(SQL_TABLE_OBJECT_DROP)) {

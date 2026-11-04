@@ -102,15 +102,8 @@ public class ObjectInterface extends Application {
 		// Fetch object from database
 		List<MyObject> objectList = dbObject.getAll(999);
 		
-		// Check errors
-		if (null == objectList) {
-			// Log request error
-			logger.error("Error on get object request");
-			
-			// Return error
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-			
-		} else if (0 == objectList.size()) {
+		// Nothing
+		if(objectList.isEmpty()) {
 			// Log empty result
 			logger.debug("No objects fetched");
 			

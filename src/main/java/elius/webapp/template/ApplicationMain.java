@@ -31,7 +31,8 @@ public class ApplicationMain {
     /**
 	 * Default constructor
 	 */
-	public ApplicationMain() {
+	private ApplicationMain() {
+        /* This class should not be instantiated */
 	}
 
     /**

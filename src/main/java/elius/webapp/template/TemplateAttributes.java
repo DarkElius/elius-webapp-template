@@ -48,6 +48,7 @@ public class TemplateAttributes {
 	/**
 	 * Default constructor
 	 */
-	public TemplateAttributes() {
+	private TemplateAttributes() {
+		/* This class should not be instantiated */
 	}
 }
