@@ -21,11 +21,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.sql.DataSource;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import elius.webapp.template.TemplateAttributes;
 import elius.webapp.template.TemplateLifeCycle;
+import elius.webapp.framework.application.ApplicationContext;
 import elius.webapp.framework.db.DbManager;
 import elius.webapp.framework.properties.PropertiesManager;
 import elius.webapp.framework.properties.PropertiesManagerFactory;
@@ -81,7 +84,7 @@ public class MyObjDatabase {
 		}
 
 		// Initialize DbManager
-		db = new DbManager(TemplateLifeCycle.getDataSource());
+		db = new DbManager(ApplicationContext.get(DataSource.class););
 			
 		// Log initialization 
 		logger.trace("Database initizialed");

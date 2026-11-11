@@ -19,7 +19,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import elius.webapp.framework.application.ApplicationLifecycle;
-import elius.webapp.framework.db.DbContext;
+import elius.webapp.framework.application.ApplicationContext;
 import elius.webapp.framework.db.DbEngine;
 import elius.webapp.framework.exceptions.LifecycleException;
 import elius.webapp.framework.properties.PropertiesManager;
@@ -52,15 +52,7 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 		appProperties = PropertiesManagerFactory.getInstance(TemplateAttributes.PROPERTIES_FILE);
 	}
 
-	/**
-     * Static global get datasource (backward compatible wrapper)
-     * 
-     * @return Db Datasource
-     */
-    public static DataSource getDataSource() {
-        return DbContext.getDataSource();
-    }
-
+	
     @Override
     public void onStartup() throws LifecycleException {
         logger.info("Application Start...");
@@ -71,7 +63,7 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 		String dsPassword = appProperties.get(TemplateAttributes.PROP_DATABASE_DATASOURCE_PASSWORD);
 		int dsMaxPoolSize = appProperties.getInt(TemplateAttributes.PROP_DATABASE_DATASOURCE_MAXPOOLSIZE, TemplateAttributes.DEFAULT_DATABASE_DATASOURCE_MAXPOOLSIZE);
 
-        DbContext.setDataSource(dbEngine.createPool(
+        ApplicationContext.register(DataSource.class, dbEngine.createPool(
             dsUrl,
             dsUsername, 
             dsPassword, 
@@ -114,8 +106,14 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
         
 		logger.info("Application shutting down...");
 
-		// Clear context reference and close pool
-        DbContext.clear();
-        dbEngine.closePool();
+		// Close pool
+		dbEngine.closePool();
+
+		// Clear context reference
+        ApplicationContext.clear();
+
+        // Log shutdown complete
+        logger.info("Application terminated");     		
+        
     }
 }

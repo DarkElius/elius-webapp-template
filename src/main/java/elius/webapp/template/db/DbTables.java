@@ -15,10 +15,12 @@
 
 package elius.webapp.template.db;
 
+import javax.sql.DataSource;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import elius.webapp.template.TemplateLifeCycle;
+import elius.webapp.framework.application.ApplicationContext;
 import elius.webapp.framework.db.DbManager;
 
 /**
@@ -57,7 +59,7 @@ public class DbTables {
 		logger.debug("Database initialization");
 
 		// Initialize DbManager
-		DbManager db = new DbManager(TemplateLifeCycle.getDataSource());
+		DbManager db = new DbManager(ApplicationContext.get(DataSource.class));
 		
 		// Queue, Drop
 		if (0 != db.execute(SQL_TABLE_OBJECT_DROP)) {
