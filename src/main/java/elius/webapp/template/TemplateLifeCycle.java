@@ -39,7 +39,7 @@ public class TemplateLifeCycle implements ApplicationLifecycle {
 	private static Logger logger = LogManager.getLogger(TemplateLifeCycle.class);
 
 	// Properties file
-	private PropertiesManager appProperties;
+	private final PropertiesManager appProperties;
 
     private final DbEngine dbEngine = new DbEngine();
 
