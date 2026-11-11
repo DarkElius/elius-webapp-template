@@ -27,7 +27,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import elius.webapp.template.TemplateAttributes;
-import elius.webapp.template.TemplateLifeCycle;
 import elius.webapp.framework.application.ApplicationContext;
 import elius.webapp.framework.db.DbManager;
 import elius.webapp.framework.properties.PropertiesManager;
@@ -45,7 +44,7 @@ public class MyObjDatabase {
 	private static Logger logger = LogManager.getLogger(MyObjDatabase.class);
 
 	// Properties file
-	private PropertiesManager appProperties;
+	private final PropertiesManager appProperties;
 	
 	// Database interface
 	private DbManager db;
