@@ -43,7 +43,7 @@ public class ObjectInterface extends Application {
 	private static Logger logger = LogManager.getLogger(ObjectInterface.class);
 	
 	/** Database handler for object operations. */
-	private MyObjDatabase dbObject;
+	private final MyObjDatabase dbObject;
 	
 	/**
 	 * Constructor
