@@ -84,7 +84,7 @@ public class MyObjDatabase {
 		}
 
 		// Initialize DbManager
-		db = new DbManager(ApplicationContext.get(DataSource.class););
+		db = new DbManager(ApplicationContext.get(DataSource.class));
 			
 		// Log initialization 
 		logger.trace("Database initizialed");
